@@ -1,0 +1,181 @@
+void setup() {
+  // put your setup code here, to run once:
+  char direction = 'E';
+  int xPosition = 1;
+  int yPosition = 1;
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  
+
+}
+
+void atIntersection() {
+  if (direction == 'E') {
+    east();
+  } else if (direction == 'S') {
+    south();
+  } else if (direction == 'N') {
+    north();
+  } else if (direction == 'W') {
+    west();
+  }
+}
+
+void east() {
+  if (isObstacle() == false && x < 7) {
+    xPosition++;
+    Linefollower();
+    return;
+  }
+  
+  turnRight();
+  
+  if (isObstacle() == false && y < 4) {
+    yPosition++;
+    direction = 'S';
+    Linefollower();
+    return;
+  }
+  
+  turn180();
+  
+  if (isObstacle() == false && y > 0) {
+    isObstacle() == false) {
+      yPosition--;
+      direction = 'N';
+      return;
+    }    
+  }
+  
+  turnLeft();
+  
+  if (isObstacle() == false && x > 0) {
+    xPosition--;
+    direction = 'W';
+    Linefollower();
+  }
+}
+
+void west() {
+  turnLeft();
+  
+  if (isObstacle == false && y < 4) {
+    yPosition++;
+    direction = 'S';
+    Linefollower();
+    return;
+  }
+  
+  turn180();
+  
+  if (isObstacle == false && y > 0) {
+    yPosition--;
+    direction = 'N';
+    Linefollower();
+    return;
+  }
+  
+  turnLeft();
+  
+  if (isObstacle == false && x > 0) {
+    xPosition--;
+    Linefollower();
+    return;
+  }
+  
+  turn180();
+  
+  if (isObstacle == false && x < 7) {
+    xPosition++;
+    direction = 'E';
+    Linefollower();
+  }
+
+}
+
+void north() {
+  turnRight();
+  
+  if (isObstacle == false && x < 7) {
+    xPosition++;
+    direction = 'E';
+    Linefollower();
+    return;
+  }
+  
+  turnLeft();
+  
+  if (isObstacle == false && y > 0) {
+    yPosition--;
+    Linefollower();
+    return;
+  }
+  
+  turnLeft();
+  
+  if (isObstacle == false && x > 0) {
+    xPosition--;
+    direction = 'W';
+    Linefollower();
+    return;
+  }
+  
+  turnLeft();
+  
+  if (isObstacle == false && y < 4) {
+    yPosition++;
+    direction = 'S';
+    Linefollower();
+    return;
+  }
+}
+
+void south() {
+  turnLeft();
+  if (isObstacle == false && x < 7) {
+    xPosition++;
+    direction = 'E';
+    Linefollower();
+    return;
+  }
+  
+  turnRight();
+  
+  if (isObstacle == false && y < 4) {
+    yPosition++;
+    Linefollower();
+    return;
+  }
+  
+  turnRight();
+  
+  if (isObstacle == false && x > 0) {
+    xPosition--;
+    direction = 'W';
+    Linefollower();
+    return;
+  }
+  
+  turnRight();
+  
+  if (isObstacle == false && y > 0) {
+    yPosition--;
+    direction = 'N';
+    Linefollower();
+    return;
+  }
+}
+
+void turnLeft() {
+  turnRight();
+  turnRight();
+  turnRight();
+}
+
+void turn180() {
+  turnRight();
+  turnRight();
+}
